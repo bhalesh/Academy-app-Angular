@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Registraion form</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+  <div class="container-fluid bg">
+    <div class="row">
+      <div class="col-md-4 col-sm-4 col-xs-12"></div>
+      <div class="col-md-4 col-sm-4 col-xs-12">
+        <!-- form start -->
+
+
+        <form class="form-container" [formGroup]="registrationForm" (ngSubmit)="onSubmit(registrationForm.value)">
+          <h1>Register Yourself</h1>
+          <div class="form-group">
+            <label for="exampleFirstName">First Name</label>
+            <input type="text" class="form-control" formControlName="firstName" [class.is-invalid]="registrationForm.get('firstName').invalid && 
+            registrationForm.get('firstName').touched"
+              id="exampleFirstName" aria-describedby="exampleFirstNameHelp" placeholder="First Name">
+
+            <small *ngIf="registrationForm.get('firstName').invalid && 
+              registrationForm.get('firstName').touched"
+              class="text-danger">first name is required </small>
+          </div>
+
+          <div class="form-group">
+            <label for="exampleLastName">Last Name</label>
+            <input type="text" class="form-control" id="exampleLastName" [class.is-invalid]="registrationForm.get('lastName').invalid && 
+            registrationForm.get('lastName').touched"
+              formControlName="lastName" aria-describedby="exampleLastNameHelp" placeholder="Last Name">
+
+            <small *ngIf="registrationForm.get('lastName').invalid && 
+              registrationForm.get('lastName').touched"
+              class="text-danger">last name is required </small>
+          </div>
+
+          <div class="form-group">
+            <label for="exampleInputEmail1">Email</label>
+            <input type="email" class="form-control" formControlName="email" [class.is-invalid]="registrationForm.get('email').invalid && 
+            registrationForm.get('email').touched"
+              id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email">
+            <small *ngIf="registrationForm.get('email').errors?.email" class="text-danger">email is not valid </small>
+            <small *ngIf="registrationForm.get('email').errors?.required && 
+              registrationForm.get('email').touched"
+              class="text-danger">email is required </small>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPhone">Contact</label>
+            <input type="number" formControlName="phone" [class.is-invalid]="registrationForm.get('phone').invalid && registrationForm.get('phone').touched"
+              class="form-control" id="exampleInputPhone" placeholder="Contact Number" maxlength="10" minlength="10">
+            <small class="text-danger" *ngIf="registrationForm.get('phone').invalid && registrationForm.get('phone').touched">Contact
+              number is required</small>
+
+          </div>
+          <button type="submit" class="btn btn-success btn-block" [disabled]="registrationForm.invalid">Submit</button>
+        </form>
+
+
+        <!-- form end -->
+      </div>
+    </div>
+  </div>
+  
+    
+</body>
+
+</html>

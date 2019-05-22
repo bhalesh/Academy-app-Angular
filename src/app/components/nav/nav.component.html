@@ -1,0 +1,57 @@
+<div id="header" class="nav-collapse nav-solid">
+    <div class="row clearfix">
+      <div class="col-12">
+
+        <!--Logo-->
+        <div id="logo">
+
+          <!--Logo that is shown on the banner-->
+          <a routerLink="/Home"><img src="../../../assets/images/logo.png" id="banner-logo" alt="Landing Page" /></a>
+          <!--End of Banner Logo-->
+
+          <!--The Logo that is shown on the sticky Navigation Bar-->
+          <a routerLink="/Home"><img src="../../../assets/images/logo-2.png" id="navigation-logo" alt="Landing Page" /></a>
+          <!--End of Navigation Logo-->
+
+        </div>
+        <!--End of Logo-->
+
+        <!-- Social icons component -->
+        <app-social></app-social>
+
+        <!-- Nav bar component -->
+          <!--Main Navigation-->
+  <nav id="nav-main">
+      <ul>
+        <li>
+          <a routerLink="/Home" (click)="getActiveTab('Home')" [class.active]="activetab === 'Home'">Home</a>
+        </li>
+        <li>
+          <a (click)="getActiveTab('About')" [class.active]="activetab === 'About'" routerLink="/About">About</a>
+        </li>
+        <li>
+          <a (click)="getActiveTab('Gallery')" [class.active]="activetab === 'Gallery'" routerLink="/Gallery">Gallery</a>
+        </li>
+        <!-- <li>
+          <a (click)="getActiveTab('Services')" [class.active]="activetab === 'Services'" routerLink="/Services">Services</a>
+        </li> -->
+        <li>
+          <a (click)="getActiveTab('Testimonials')" [class.active]="activetab === 'Testimonials'" routerLink="/Testimonials">Testimonials</a>
+        </li>
+        <li>
+          <a (click)="getActiveTab('Clients')" [class.active]="activetab === 'Clients'" routerLink="/Clients">Digital Partners</a>
+        </li>
+        <li>
+          <a (click)="getActiveTab('Pricing')" [class.active]="activetab === 'Pricing'" routerLink="/Pricing">Pricing</a>
+        </li>
+      </ul>
+    </nav>
+    <!--End of Main Navigation-->
+
+        <div id="nav-trigger"><span></span></div>
+        <nav id="nav-mobile"></nav>
+
+      </div>
+    </div>
+  </div>
+  <!--End of Header-->
